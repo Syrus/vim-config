@@ -23,8 +23,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'TVO--The-Vim-Outliner'
 
 set autoindent
-filetype plugin indent on     " required!
+filetype plugin indent on " required!
 syntax enable
+syntax on
 if has('gui_running')
     set background=light
 else
@@ -59,9 +60,8 @@ autocmd BufReadPost *
 \   exe "normal g`\"" |
 \ endif
 " Octave syntax
-augroup filetypedetect
-au! BufRead,BufNewFile *.m,*.oct set filetype=octave
-augroup END 
+au BufNewFile,BufRead *.m     setf octave
+au BufNewFile,BufRead *.m     set syntax=matlab
 " Use keywords from Octave syntax language file for autocomplete
 if has("autocmd") && exists("+omnifunc")
     autocmd Filetype octave

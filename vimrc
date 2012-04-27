@@ -19,8 +19,10 @@ Bundle 'python.vim'
 Bundle 'octave.vim'
 Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'tpope/vim-fugitive'
+Bundle 'ervandew/screen'
 " vim-scripts repos
 Bundle 'TVO--The-Vim-Outliner'
+Bundle 'TextFormat'
 
 set autoindent
 filetype plugin indent on " required!
@@ -69,9 +71,10 @@ if has("autocmd") && exists("+omnifunc")
     \ setlocal omnifunc=syntaxcomplete#Complete |
     \ endif
 endif 
-"
+" Setup R plugin
+let vimrplugin_r_args = "--no-save --no-restore"
+let vimrplugin_routmorecolors = 1
 " tab settings
-"
 set tabstop=4|set shiftwidth=4|set expandtab|set smartindent " default
 
 " insert dat stamp by typing 'dts' in insert mode
@@ -102,4 +105,4 @@ let otl_use_thlnk=0
 "
 au BufWinLeave *.otl mkview
 au BufWinEnter *.otl silent loadview
-let maplocalleader = ",,"
+let maplocalleader = ","

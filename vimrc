@@ -1,7 +1,7 @@
 " Syrus's vimrc
 set nocompatible
 filetype off  " required!
-set rtp+=~/.vim/vundle.git/ 
+set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
 " let Vundle manage Vundle
@@ -27,11 +27,13 @@ Bundle 'TextFormat'
 set autoindent
 filetype plugin indent on " required!
 syntax enable
-syntax on
 if has('gui_running')
     set background=light
 else
     set background=dark
+    let g:solarized_termcolors=16
+    let g:solarized_termtrans=1
+    let g:solarized_visibility="low"
 endif
 colorscheme solarized
 
@@ -56,7 +58,7 @@ set hlsearch " highlight the current search pattern
 set title " shows the current filename and path in the term title.
 nnoremap <silent><CR> :nohlsearch<CR><CR> " in normal mode, enter clears search highlight
 nnoremap <F2> :set nonumber!<CR>h " in normal mode, F2 key toggles line numbering
-set numberwidth=5 " width of line numbers
+set numberwidth=6 " width of line numbers
 autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \   exe "normal g`\"" |
